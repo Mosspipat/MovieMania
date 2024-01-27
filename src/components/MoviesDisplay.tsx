@@ -20,7 +20,7 @@ export const MoviesDisplay = () => {
   }, []);
 
   return (
-    <Flex gap={2} flexWrap={"wrap"} justifyContent="center" padding={6}>
+    <Flex gap={16} flexWrap={"wrap"} justifyContent="center" padding={16}>
       {movieList &&
         movieList.map((movie) => (
           <Card

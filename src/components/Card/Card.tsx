@@ -57,6 +57,8 @@ const Card = (props: CardProps) => {
         borderRadius="0px 0px 24px 24px"
         maxW="360px"
         padding="0em 0em 1em"
+        boxShadow="dark-lg"
+        // boxShadow="16px 16px 16px rgba(1, 1, 1, 0.4)"
       >
         <Image src={imagePath} />
         <VStack alignItems="center" width="full" padding="0em 1em">
