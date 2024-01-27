@@ -1,7 +1,7 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { MoviesDisplay } from "./components";
 
-async function App() {
+function App() {
   return (
     <ChakraProvider>
       <MoviesDisplay />
