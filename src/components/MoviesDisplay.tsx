@@ -2,7 +2,7 @@ import { Box, Flex, Image, VStack } from "@chakra-ui/react";
 import { Tag } from ".";
 import { useEffect, useState } from "react";
 import { getPopularMovieList } from "../services";
-import { PATH_ORIGIN_IMAGE } from "../constants";
+import { PATH_ORIGIN_IMAGE, PATH_ORIGIN_IMAGE_WIDTH_500 } from "../constants";
 import Card from "./Card/Card";
 
 export const MoviesDisplay = () => {
@@ -26,7 +26,7 @@ export const MoviesDisplay = () => {
           <Card
             title={movie.original_title}
             overview={movie.overview}
-            imagePath={`${PATH_ORIGIN_IMAGE}/${movie.backdrop_path}`}
+            imagePath={`${PATH_ORIGIN_IMAGE_WIDTH_500}/${movie.poster_path}`}
             genreIDS={movie.genre_ids}
             voteAverage={movie.vote_average}
           />

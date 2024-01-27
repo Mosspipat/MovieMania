@@ -33,7 +33,7 @@ const Card = (props: CardProps) => {
   const renderTag = (genre_ids?: number[]) => {
     return (
       genre_ids && (
-        <Flex justifyContent="start" gap={2} flexWrap="wrap" width="80%">
+        <Flex justifyContent="start" gap={2} flexWrap="wrap" width="100%">
           {genre_ids.map((genreID) => (
             <Tag label={covertGenreIDToGenre(genreID)} />
           ))}
@@ -58,30 +58,27 @@ const Card = (props: CardProps) => {
         maxW="360px"
         padding="0em 0em 1em"
       >
-        <Image src={imagePath} width="full" />
-        <HStack
-          justifyContent="space-between"
-          alignItems="center"
-          width="full"
-          padding="0em 1em"
-        >
-          <Text color="white" fontWeight="bold">
-            {title}
-          </Text>
-          <HStack alignItems="center" justifyContent="center" gap="4px">
-            <Text
-              color="gold"
-              backgroundColor={COLORS.Secondary_Indigo}
-              padding="0em 0.4em"
-              borderRadius={6}
-            >
-              ({voteAverage})
+        <Image src={imagePath} />
+        <VStack alignItems="center" width="full" padding="0em 1em">
+          <HStack width="full" justifyContent="space-between">
+            <Text color="white" fontWeight="bold">
+              {title}
             </Text>
-            <StarIcon boxSize="14px" color="yellow" />
+            <HStack alignItems="center" justifyContent="center" gap="4px">
+              <Text
+                color="gold"
+                backgroundColor={COLORS.Secondary_Indigo}
+                padding="0em 0.4em"
+                borderRadius={6}
+              >
+                ({voteAverage})
+              </Text>
+              <StarIcon boxSize="14px" color="yellow" />
+            </HStack>
           </HStack>
-        </HStack>
-        {renderTag(genreIDS)}
-        <Text className="overview">{overview}</Text>
+          {renderTag(genreIDS)}
+          <Text className="overview">{overview}</Text>
+        </VStack>
       </VStack>
     </StyledCard>
   );
