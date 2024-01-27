@@ -1,10 +1,17 @@
 import axios from "axios";
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export const getAllMovieList = async () => {
+type GetAllMovieList = {
+  language?: string;
+  page?: number;
+};
+
+export const getPopularMovieList = async (props: GetAllMovieList) => {
+  const { language = "en-US", page = 1 } = props;
+
   try {
     const res = await axios.get(
-      "https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc",
+      `https://api.themoviedb.org/3/movie/popular?language=${language}&page=${page}`,
       {
         method: "GET",
         headers: {

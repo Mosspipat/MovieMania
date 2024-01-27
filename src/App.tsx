@@ -1,9 +1,10 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { MoviesDisplay } from "./components";
+import theme from "./styles/theme";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <MoviesDisplay />
     </ChakraProvider>
   );
