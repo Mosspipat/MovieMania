@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Box, Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
-import React, { CSSProperties, useEffect, useState } from "react";
+import { Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import { Tag } from "..";
 import { GetGenreIDS } from "../../services";
 import { COLORS } from "../../constants";
@@ -15,7 +15,7 @@ type CardProps = {
   voteAverage?: number;
 };
 
-const Card = (props: CardProps) => {
+export const Card = (props: CardProps) => {
   const { title, overview, imagePath, genreIDS, voteAverage } = props;
 
   const [allGenreList, setAllGenreList] = useState([]);
@@ -61,7 +61,7 @@ const Card = (props: CardProps) => {
         // boxShadow="16px 16px 16px rgba(1, 1, 1, 0.4)"
       >
         <Image src={imagePath} />
-        <VStack alignItems="center" width="full" padding="0em 1em">
+        <VStack alignItems="center" width="full" padding="1em 1em">
           <HStack width="full" justifyContent="space-between">
             <Text color="white" fontWeight="bold">
               {title}
@@ -85,5 +85,3 @@ const Card = (props: CardProps) => {
     </StyledCard>
   );
 };
-
-export default Card;

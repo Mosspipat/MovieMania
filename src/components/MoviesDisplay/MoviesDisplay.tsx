@@ -1,16 +1,16 @@
-import { Box, Flex, Image, VStack } from "@chakra-ui/react";
-import { Tag } from ".";
+import { Flex } from "@chakra-ui/react";
+
 import { useEffect, useState } from "react";
-import { getPopularMovieList } from "../services";
-import { PATH_ORIGIN_IMAGE, PATH_ORIGIN_IMAGE_WIDTH_500 } from "../constants";
-import Card from "./Card/Card";
+import { getPopularMovieList } from "../../services";
+import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
+import { Card } from "..";
+import { MovieList } from "./type";
 
 export const MoviesDisplay = () => {
-  const [movieList, setMovieList] = useState([]);
+  const [movieList, setMovieList] = useState<MovieList[]>([]);
 
   const getMovieList = async () => {
     const data = await getPopularMovieList({ page: 1, language: "en-US" });
-    console.log("🚀: ~ data:", data);
     const allMovieList = data.results;
     setMovieList(allMovieList);
   };
@@ -19,8 +19,17 @@ export const MoviesDisplay = () => {
     getMovieList();
   }, []);
 
+  useEffect(() => {
+    console.log(movieList);
+  }, [movieList]);
+
   return (
-    <Flex gap={16} flexWrap={"wrap"} justifyContent="center" padding={16}>
+    <Flex
+      gap={16}
+      flexWrap={"wrap"}
+      justifyContent="center"
+      padding="120px 64px"
+    >
       {movieList &&
         movieList.map((movie) => (
           <Card
