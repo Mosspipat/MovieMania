@@ -13,7 +13,6 @@ export const TopBar = () => {
       top={0}
       height={16}
       justifyContent="center"
-      borderTop={`${borderWidth} solid white`}
       borderBottom={`${borderWidth} solid white`}
       boxShadow="dark-lg"
       zIndex={5}
