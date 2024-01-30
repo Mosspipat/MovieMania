@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Tag } from "..";
 import { GetGenreIDS } from "../../services";
 import { COLORS } from "../../constants";
@@ -58,7 +58,11 @@ export const Card = (props: CardProps) => {
         maxW="360px"
         padding="0em 0em 1em"
         boxShadow="dark-lg"
-        // boxShadow="16px 16px 16px rgba(1, 1, 1, 0.4)"
+        transform="scale(1.0)"
+        transition={"transform 0.6s ease, opacity 0.3s ease"}
+        _hover={{
+          transform: "scale(1.1)",
+        }}
       >
         <Image src={imagePath} />
         <VStack alignItems="center" width="full" padding="1em 1em">
