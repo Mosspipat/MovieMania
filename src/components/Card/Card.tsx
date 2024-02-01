@@ -13,10 +13,13 @@ type CardProps = {
   imagePath?: string;
   genreIDS?: number[];
   voteAverage?: number;
+  id: number;
+  onClick: (id: number) => void;
 };
 
 export const Card = (props: CardProps) => {
-  const { title, overview, imagePath, genreIDS, voteAverage } = props;
+  const { title, overview, imagePath, genreIDS, voteAverage, id, onClick } =
+    props;
 
   const [allGenreList, setAllGenreList] = useState([]);
 
@@ -62,6 +65,9 @@ export const Card = (props: CardProps) => {
         transition={"transform 0.6s ease, opacity 0.3s ease"}
         _hover={{
           transform: "scale(1.1)",
+        }}
+        onClick={() => {
+          onClick(id);
         }}
       >
         <Image src={imagePath} />
