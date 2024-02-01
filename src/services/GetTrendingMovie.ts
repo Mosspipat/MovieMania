@@ -1,19 +1,20 @@
 import axios from "axios";
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export const GetUserID = async () => {
+export const GetTrendingMovie = async () => {
   try {
     const res = await axios.get(
-      "https://api.themoviedb.org/3/account/20948963",
+      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
       {
+        method: "GET",
         headers: {
+          accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
-          Accept: "application/json",
         },
       }
     );
     return res.data;
   } catch (error) {
-    console.error("Error fetching data", error);
+    console.error("Error fetching movie list", error);
   }
 };

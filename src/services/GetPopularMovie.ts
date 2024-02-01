@@ -6,7 +6,7 @@ type GetAllMovieList = {
   page?: number;
 };
 
-export const getPopularMovieList = async (props: GetAllMovieList) => {
+export const GetPopularMovieList = async (props: GetAllMovieList) => {
   const { language = "en-US", page = 1 } = props;
 
   try {

@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { getPopularMovieList } from "../../services";
+import { GetTrendingMovie } from "../../services";
 import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
 import { Card, Modal } from "..";
 import { MovieList } from "./type";
@@ -11,7 +11,7 @@ export const MoviesDisplay = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const getMovieList = async () => {
-    const data = await getPopularMovieList({ page: 1, language: "en-US" });
+    const data = await GetTrendingMovie();
     const allMovieList = data.results;
     setMovieList(allMovieList);
   };
