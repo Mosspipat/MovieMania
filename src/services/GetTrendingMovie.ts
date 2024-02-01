@@ -1,10 +1,11 @@
 import axios from "axios";
 const apiKey = import.meta.env.VITE_API_KEY;
 
+const language = "en-US";
 export const GetTrendingMovie = async () => {
   try {
     const res = await axios.get(
-      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+      `https://api.themoviedb.org/3/trending/all/day?language=${language}`,
       {
         method: "GET",
         headers: {
