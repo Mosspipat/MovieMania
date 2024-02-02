@@ -52,7 +52,6 @@ export const InputSearch = (
     >
       <InputGroup position="relative">
         <Input
-          className=""
           size="lg"
           textAlign="center"
           color="black"

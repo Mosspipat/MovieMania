@@ -22,6 +22,6 @@ export const GetPopularMovieList = async (props: GetAllMovieList) => {
     );
     return res.data;
   } catch (error) {
-    console.error("Error fetching movie list", error);
+    console.error("Error fetching popular movie list", error);
   }
 };

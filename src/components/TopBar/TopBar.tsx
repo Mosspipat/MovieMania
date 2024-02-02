@@ -2,12 +2,13 @@ import { HStack, Text, VStack } from "@chakra-ui/react";
 import { COLORS } from "../../constants";
 import { RiMovie2Fill } from "react-icons/ri";
 import { InputSearch } from "./InputSearch";
+import { NavigationLink } from "./NavigationLink";
 
 export const TopBar = () => {
   const borderWidth: string = "4px";
 
   return (
-    <VStack
+    <HStack
       backgroundColor={COLORS.Primary_Navy_Blue}
       position="sticky"
       top={0}
@@ -17,6 +18,7 @@ export const TopBar = () => {
       boxShadow="dark-lg"
       zIndex={5}
     >
+      <NavigationLink />
       <HStack>
         <Text
           color="white"
@@ -34,6 +36,6 @@ export const TopBar = () => {
         onChange={() => {}}
         borderWidth={borderWidth}
       />
-    </VStack>
+    </HStack>
   );
 };
