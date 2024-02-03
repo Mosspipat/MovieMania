@@ -17,6 +17,7 @@ import { COLORS } from "../../constants";
 import { ItemMedia } from "./ItemMedia";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
+import { UseMovieStore } from "../../stores/UseMovieStore";
 
 export function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -24,6 +25,8 @@ export function SideBar() {
 
   const [movieList, setMovieList] = useState<MovieDetail[]>([]);
   const [TVSeriesList, setTVSeriesList] = useState<TVSeriesDetail[]>([]);
+
+  const { setCurrentMedia } = UseMovieStore();
 
   useEffect(() => {
     (async () => {
@@ -40,6 +43,10 @@ export function SideBar() {
       setTVSeriesList(allTVSeries);
     })();
   }, []);
+
+  const handleSelectMedia = (typeMedia: MovieDetail[] | TVSeriesDetail[]) => {
+    setCurrentMedia(typeMedia);
+  };
 
   return (
     <Box position="absolute" left={2} top={0} transform={`translate(0%,25%)`}>
@@ -89,8 +96,16 @@ export function SideBar() {
             alignItems="center"
             padding="4rem 0rem"
           >
-            <ItemMedia label="Movies" MediaList={movieList} />
-            <ItemMedia label="TV/Series" MediaList={TVSeriesList} />
+            <ItemMedia
+              label="Movies"
+              MediaList={movieList}
+              onClick={handleSelectMedia}
+            />
+            <ItemMedia
+              label="TV/Series"
+              MediaList={TVSeriesList}
+              onClick={handleSelectMedia}
+            />
             {/* <ItemMedia label="Favorite" />  */}
           </DrawerBody>
         </DrawerContent>

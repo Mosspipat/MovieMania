@@ -5,7 +5,7 @@ const language = "en-US";
 export const GetTrendingMovie = async () => {
   try {
     const res = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?language=${language}`,
+      `https://api.themoviedb.org/3/trending/movie/day?language=${language}`,
       {
         method: "GET",
         headers: {

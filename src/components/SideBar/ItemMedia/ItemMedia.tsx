@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 type ItemMediaProps = {
   label: string;
   MediaList: MovieDetail[] | TVSeriesDetail[];
-  onClick?: () => void;
+  onClick?: (typeMedia: MovieDetail[] | TVSeriesDetail[]) => void;
 };
 
 export function ItemMedia(props: ItemMediaProps) {
@@ -39,7 +39,10 @@ export function ItemMedia(props: ItemMediaProps) {
   }, []);
 
   return (
-    <VStack position="relative" onClick={onClick}>
+    <VStack
+      position="relative"
+      onClick={() => (onClick ? onClick(MediaList) : () => {})}
+    >
       <Text
         textTransform="uppercase"
         fontWeight="bold"

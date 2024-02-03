@@ -7,14 +7,35 @@ type useMovieStoreType = {
 
   trendTVSeries: TVSeriesDetail[];
   popularTVSeries: TVSeriesDetail[];
+
+  currentMedia: MovieDetail[] | TVSeriesDetail[];
+  setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => void;
+
+  setTrendMovie: (newTrendMovie: MovieDetail[]) => void;
+  addTrendMovie: (newTrendMovie: MovieDetail) => void;
+
+  setPopularMovie: (newTrendMovie: MovieDetail[]) => void;
+  addPopularMovie: (newTrendMovie: MovieDetail) => void;
+
+  setTrendTVSeries: (newTrendTVSeries: TVSeriesDetail[]) => void;
+  addTrendTVSeries: (newTrendTVSeries: TVSeriesDetail) => void;
+
+  setPopularTVSeries: (newPopularTVSeries: TVSeriesDetail[]) => void;
+  addPopularTVSeries: (newPopularTVSeries: TVSeriesDetail) => void;
 };
 
-export const useMovieStore = create<useMovieStoreType>((set) => ({
+export const UseMovieStore = create<useMovieStoreType>((set) => ({
   trendMovie: [],
   popularMovie: [],
 
   trendTVSeries: [],
   popularTVSeries: [],
+
+  currentMedia: [],
+
+  setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => {
+    set({ currentMedia: newCurrentMedia });
+  },
 
   setTrendMovie: (newTrendMovie: MovieDetail[]) => {
     set({ trendMovie: newTrendMovie });

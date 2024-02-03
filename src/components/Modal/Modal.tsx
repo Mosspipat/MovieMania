@@ -11,10 +11,10 @@ import {
 import { Lorem } from "../../utils";
 import { useEffect, useRef } from "react";
 import { COLORS } from "../../constants";
-import { MovieDetail } from "../MoviesDisplay/type";
+import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 
 type ModalProps = {
-  detail?: MovieDetail;
+  detail?: MovieDetail | TVSeriesDetail;
   visible: boolean;
   onClose: () => void;
 };
