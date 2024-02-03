@@ -7,15 +7,14 @@ import {
   ModalBody,
   Text,
   useDisclosure,
-  AspectRatio,
 } from "@chakra-ui/react";
 import { Lorem } from "../../utils";
 import { useEffect, useRef } from "react";
 import { COLORS } from "../../constants";
-import { MovieList } from "../MoviesDisplay/type";
+import { MovieDetail } from "../MoviesDisplay/type";
 
 type ModalProps = {
-  detail?: MovieList;
+  detail?: MovieDetail;
   visible: boolean;
   onClose: () => void;
 };

@@ -1,4 +1,4 @@
-export type MovieList = {
+export type MovieDetail = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
@@ -15,7 +15,7 @@ export type MovieList = {
   vote_count: number;
 };
 
-export type TVList = {
+export type TVSeriesDetail = {
   adult: boolean;
   backdrop_path: string;
   id: number;

@@ -1,18 +1,19 @@
 import { Box, Image, Text, VStack } from "@chakra-ui/react";
 import { COLORS, PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../../constants";
-import { MovieList, TVList } from "../../MoviesDisplay/type";
+import { MovieDetail, TVSeriesDetail } from "../../MoviesDisplay/type";
 import { useEffect, useState } from "react";
 
 type ItemMediaProps = {
   label: string;
-  MediaList: MovieList[] | TVList[];
+  MediaList: MovieDetail[] | TVSeriesDetail[];
+  onClick?: () => void;
 };
 
 export function ItemMedia(props: ItemMediaProps) {
-  const { label, MediaList } = props;
+  const { label, MediaList, onClick } = props;
   const [posters, setPoster] = useState<string[]>([]);
 
-  const mediaPoster = (MediaList: MovieList[] | TVList[]) => {
+  const mediaPoster = (MediaList: MovieDetail[] | TVSeriesDetail[]) => {
     if (posters.length <= 0) {
       if ("original_title" in MediaList[0]) {
         for (let i = 0; i < 3; i++) {
@@ -38,7 +39,7 @@ export function ItemMedia(props: ItemMediaProps) {
   }, []);
 
   return (
-    <VStack position="relative" width="full" maxH="120px">
+    <VStack position="relative" onClick={onClick}>
       <Text
         textTransform="uppercase"
         fontWeight="bold"
@@ -53,26 +54,20 @@ export function ItemMedia(props: ItemMediaProps) {
       >
         {label}
       </Text>
-
-      <Box
-        position="relative"
-        backgroundColor="red"
-        width="120px"
-        height="200px"
-      >
+      <Box position="relative" width="full" height="260px">
         {posters &&
           posters.map((poster, index) => {
             return (
               <Image
                 src={`${PATH_ORIGIN_IMAGE_WIDTH_500}/${poster}`}
-                borderRadius="4px"
-                border={`2px solid ${COLORS.Primary_Navy_Blue}`}
-                boxShadow={`6px 4px 2px rgba(0,0,0,0.2)`}
                 position="absolute"
-                top={0}
+                top="32px"
                 left={4 * index}
-                zIndex={-1 * index}
+                border={`2px solid ${COLORS.Primary_Navy_Blue}`}
+                borderRadius="4px"
+                boxShadow={`6px 4px 2px rgba(0,0,0,0.2)`}
                 transform={`rotate(${8 * (index + 1)}deg) `}
+                zIndex={-1 * index}
               />
             );
           })}

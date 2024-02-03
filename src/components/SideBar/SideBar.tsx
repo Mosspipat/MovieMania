@@ -16,14 +16,14 @@ import { PiTelevisionSimpleFill } from "react-icons/pi";
 import { COLORS } from "../../constants";
 import { ItemMedia } from "./ItemMedia";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
-import { MovieList, TVList } from "../MoviesDisplay/type";
+import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 
 export function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const buttonRoute = useRef<HTMLButtonElement>(null);
 
-  const [movieList, setMovieList] = useState<MovieList[]>([]);
-  const [TVSeriesList, setTVSeriesList] = useState<TVList[]>([]);
+  const [movieList, setMovieList] = useState<MovieDetail[]>([]);
+  const [TVSeriesList, setTVSeriesList] = useState<TVSeriesDetail[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -68,10 +68,8 @@ export function SideBar() {
       >
         <DrawerOverlay />
         <DrawerContent
-          //   backgroundColor={COLORS.Primary_Navy_Blue}
           backgroundColor={`rgba(255, 255, 255, 1)`}
           borderRadius="0px 0px 200px 0px"
-          borderStyle="dashed"
           boxShadow="2xl"
         >
           <DrawerCloseButton color="white" />
@@ -89,9 +87,7 @@ export function SideBar() {
             display="flex"
             flexDir="column"
             alignItems="center"
-            justifyContent="start"
-            gap="300px"
-            // padding="4rem 0rem"
+            padding="4rem 0rem"
           >
             <ItemMedia label="Movies" MediaList={movieList} />
             <ItemMedia label="TV/Series" MediaList={TVSeriesList} />

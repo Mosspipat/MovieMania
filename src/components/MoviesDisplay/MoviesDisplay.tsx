@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
 import { Card, Modal } from "..";
-import { MovieList } from "./type";
+import { MovieDetail } from "./type";
 
 export const MoviesDisplay = () => {
-  const [movieList, setMovieList] = useState<MovieList[]>([]);
-  const [tempMovieDetail, setTempMovieDetail] = useState<MovieList>({});
+  const [movieList, setMovieList] = useState<MovieDetail[]>([]);
+  const [tempMovieDetail, setTempMovieDetail] = useState<MovieDetail>({});
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   const getMovieList = async () => {
