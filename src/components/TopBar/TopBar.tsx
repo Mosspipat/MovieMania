@@ -1,8 +1,8 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import { COLORS } from "../../constants";
 import { RiMovie2Fill } from "react-icons/ri";
 import { InputSearch } from "./InputSearch";
-import { NavigationLink } from "./NavigationLink";
+import { SideBar } from "../SideBar";
 
 export const TopBar = () => {
   const borderWidth: string = "4px";
@@ -18,7 +18,7 @@ export const TopBar = () => {
       boxShadow="dark-lg"
       zIndex={5}
     >
-      <NavigationLink />
+      <SideBar />
       <HStack>
         <Text
           color="white"

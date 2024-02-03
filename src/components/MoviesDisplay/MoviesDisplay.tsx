@@ -13,6 +13,7 @@ export const MoviesDisplay = () => {
   const getMovieList = async () => {
     // const data = await GetTrendingMovie();
     const data = await GetTrendingTVList();
+    console.log("🚀: ~ data:", data);
     const allMovieList = data.results;
     setMovieList(allMovieList);
   };

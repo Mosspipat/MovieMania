@@ -1,27 +1,45 @@
 import {
   Button,
-  ButtonGroup,
   HStack,
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Box,
-  Input,
   useDisclosure,
-  Text,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdLocalMovies } from "react-icons/md";
 import { PiTelevisionSimpleFill } from "react-icons/pi";
-import { COLORS } from "../../../constants";
+import { COLORS } from "../../constants";
+import { ItemMedia } from "./ItemMedia";
+import { GetTrendingMovie, GetTrendingTVList } from "../../services";
+import { MovieList, TVList } from "../MoviesDisplay/type";
 
-export function NavigationLink() {
+export function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const buttonRoute = useRef<HTMLButtonElement>(null);
+
+  const [movieList, setMovieList] = useState<MovieList[]>([]);
+  const [TVSeriesList, setTVSeriesList] = useState<TVList[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await GetTrendingMovie();
+      const allMovie = data.results;
+      setMovieList(allMovie);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      const data = await GetTrendingTVList();
+      const allTVSeries = data.results;
+      setTVSeriesList(allTVSeries);
+    })();
+  }, []);
 
   return (
     <Box position="absolute" left={2} top={0} transform={`translate(0%,25%)`}>
@@ -51,7 +69,7 @@ export function NavigationLink() {
         <DrawerOverlay />
         <DrawerContent
           //   backgroundColor={COLORS.Primary_Navy_Blue}
-          backgroundColor={`rgba(255, 255, 255, 0.2)`}
+          backgroundColor={`rgba(255, 255, 255, 1)`}
           borderRadius="0px 0px 200px 0px"
           borderStyle="dashed"
           boxShadow="2xl"
@@ -67,14 +85,18 @@ export function NavigationLink() {
             TV or Movie
           </DrawerHeader>
 
-          <DrawerBody>{/* <Input placeholder="Type here..." /> */}</DrawerBody>
-
-          {/* <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose} color="white">
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter> */}
+          <DrawerBody
+            display="flex"
+            flexDir="column"
+            alignItems="center"
+            justifyContent="start"
+            gap="300px"
+            // padding="4rem 0rem"
+          >
+            <ItemMedia label="Movies" MediaList={movieList} />
+            <ItemMedia label="TV/Series" MediaList={TVSeriesList} />
+            {/* <ItemMedia label="Favorite" />  */}
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </Box>

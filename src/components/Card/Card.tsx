@@ -7,7 +7,7 @@ import { COLORS } from "../../constants";
 import { StyledCard } from "./style";
 import { StarIcon } from "@chakra-ui/icons";
 
-type CardProps = {
+export type CardProps = {
   title?: string;
   overview?: string;
   imagePath?: string;
