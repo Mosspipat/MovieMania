@@ -42,6 +42,9 @@ export function ItemMedia(props: ItemMediaProps) {
     <VStack
       position="relative"
       onClick={() => (onClick ? onClick(MediaList) : () => {})}
+      transition={`0.3s ease-out`}
+      _hover={{ transform: "scale(1.1)" }}
+      
     >
       <Text
         textTransform="uppercase"
