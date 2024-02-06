@@ -24,7 +24,6 @@ export const MoviesDisplay = () => {
   const getMovieList = async () => {
     const data = await GetTrendingMovie();
     const allMovieList = data.results;
-    console.log("🚀: ~ allMovieList:", allMovieList);
     setTrendMovie(allMovieList);
   };
 
@@ -40,7 +39,6 @@ export const MoviesDisplay = () => {
   }, []);
 
   useEffect(() => {
-    console.log(trendMovie);
     setCurrentMedia(trendMovie);
     setFilterMedia(trendMovie);
   }, [trendMovie]);
@@ -60,6 +58,8 @@ export const MoviesDisplay = () => {
 
   return (
     <Flex
+      minW="100vw"
+      minH="100vh"
       gap={16}
       flexWrap={"wrap"}
       justifyContent="center"

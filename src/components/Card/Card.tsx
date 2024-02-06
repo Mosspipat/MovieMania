@@ -55,15 +55,17 @@ export const Card = (props: CardProps) => {
   }, []);
 
   const scaleAnimation = keyframes`
-  
   0%{
-    transform: scale(0); 
+    transform: scale(0.6);
+    opacity: 0;
   }
   50%{
-    
+    transform: scale(1.1);
+    opacity: 0.5;
   }
   100%{
     transform: scale(${defaultScale}); 
+    opacity: 1;
   }
 `;
 
@@ -78,7 +80,7 @@ export const Card = (props: CardProps) => {
         boxShadow="dark-lg"
         transform={`scale(${defaultScale})`}
         transition={"all 0.6s ease"}
-        animation={`${scaleAnimation} 2s ease-out`}
+        animation={`${scaleAnimation} 0.6s ease-out`}
         _hover={{
           transform: "scale(1.1)",
           backgroundColor: "red",

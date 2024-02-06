@@ -19,7 +19,6 @@ export const TopBar = () => {
         return media.original_name.includes(name);
       }
     });
-    console.log("🚀: ~ allFilterName:", allFilterName);
 
     setFilterMedia(allFilterName as MovieDetail[] | TVSeriesDetail[]);
   };
@@ -51,7 +50,6 @@ export const TopBar = () => {
       <InputSearch
         placeholder="Search Movie..."
         onChange={(e) => {
-          // console.log(e.target.value);
           filterMediaName(e.target.value);
         }}
         borderWidth={borderWidth}

@@ -26,7 +26,7 @@ export function SideBar() {
   const [movieList, setMovieList] = useState<MovieDetail[]>([]);
   const [TVSeriesList, setTVSeriesList] = useState<TVSeriesDetail[]>([]);
 
-  const { setCurrentMedia } = UseMovieStore();
+  const { setCurrentMedia, setFilterMedia } = UseMovieStore();
 
   useEffect(() => {
     (async () => {
@@ -46,6 +46,7 @@ export function SideBar() {
 
   const handleSelectMedia = (typeMedia: MovieDetail[] | TVSeriesDetail[]) => {
     setCurrentMedia(typeMedia);
+    setFilterMedia(typeMedia);
   };
 
   return (
