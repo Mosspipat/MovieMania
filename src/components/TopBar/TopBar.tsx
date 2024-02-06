@@ -9,10 +9,10 @@ import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 export const TopBar = () => {
   const borderWidth: string = "4px";
 
-  const { currentMedia, setFilterMedia } = UseMovieStore();
+  const { currentMedia, setFilterMedia, setNameFilter } = UseMovieStore();
 
   const filterMediaName = (name: string) => {
-    const allFilterName = currentMedia.filter((media) => {
+    const allFilterMedia = currentMedia.filter((media) => {
       if ("original_title" in media) {
         return media.original_title.includes(name);
       } else if ("original_name" in media) {
@@ -20,7 +20,8 @@ export const TopBar = () => {
       }
     });
 
-    setFilterMedia(allFilterName as MovieDetail[] | TVSeriesDetail[]);
+    setFilterMedia(allFilterMedia as MovieDetail[] | TVSeriesDetail[]);
+    setNameFilter(name);
   };
 
   return (

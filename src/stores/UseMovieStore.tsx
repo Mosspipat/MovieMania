@@ -8,10 +8,14 @@ type useMovieStoreType = {
   trendTVSeries: TVSeriesDetail[];
   popularTVSeries: TVSeriesDetail[];
 
-  currentMedia: MovieDetail[] | TVSeriesDetail[];
-  setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => void;
+  currentMedia: (MovieDetail | TVSeriesDetail)[];
+  setCurrentMedia: (newCurrentMedia: (MovieDetail | TVSeriesDetail)[]) => void;
+
   filterMedia: (MovieDetail | TVSeriesDetail)[];
-  setFilterMedia: (newFilterMedia: MovieDetail[] | TVSeriesDetail[]) => void;
+  setFilterMedia: (newFilterMedia: (MovieDetail | TVSeriesDetail)[]) => void;
+
+  nameFilter: string;
+  setNameFilter: (name: string) => void;
 
   setTrendMovie: (newTrendMovie: MovieDetail[]) => void;
   addTrendMovie: (newTrendMovie: MovieDetail) => void;
@@ -36,12 +40,18 @@ export const UseMovieStore = create<useMovieStoreType>((set) => ({
   currentMedia: [],
   filterMedia: [],
 
+  nameFilter: "",
+
+  setCurrentMedia: (newCurrentMedia: (MovieDetail | TVSeriesDetail)[]) => {
+    set({ currentMedia: newCurrentMedia });
+  },
+
   setFilterMedia: (newFilterMedia: (MovieDetail | TVSeriesDetail)[]) => {
     set({ filterMedia: newFilterMedia });
   },
 
-  setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => {
-    set({ currentMedia: newCurrentMedia });
+  setNameFilter: (name: string) => {
+    set({ nameFilter: name });
   },
 
   setTrendMovie: (newTrendMovie: MovieDetail[]) => {

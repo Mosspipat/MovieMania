@@ -26,7 +26,8 @@ export function SideBar() {
   const [movieList, setMovieList] = useState<MovieDetail[]>([]);
   const [TVSeriesList, setTVSeriesList] = useState<TVSeriesDetail[]>([]);
 
-  const { setCurrentMedia, setFilterMedia } = UseMovieStore();
+  const { setCurrentMedia, setFilterMedia, currentMedia, nameFilter } =
+    UseMovieStore();
 
   useEffect(() => {
     (async () => {
@@ -44,9 +45,22 @@ export function SideBar() {
     })();
   }, []);
 
+  useEffect(() => {
+    console.log("filterMedia:", nameFilter);
+  }, [nameFilter]);
+
   const handleSelectMedia = (typeMedia: MovieDetail[] | TVSeriesDetail[]) => {
     setCurrentMedia(typeMedia);
-    setFilterMedia(typeMedia);
+
+    const filterMediaList = typeMedia.filter((media) => {
+      if ("original_title" in media) {
+        return media.original_title.includes(nameFilter);
+      } else if ("original_name" in media) {
+        return media.original_name.includes(nameFilter);
+      }
+    });
+
+    setFilterMedia(filterMediaList);
   };
 
   return (
@@ -64,7 +78,7 @@ export function SideBar() {
       >
         <HStack>
           <MdLocalMovies size={24} />
-          <Box>|</Box>
+          <Box>OR</Box>
           <PiTelevisionSimpleFill size={24} />
         </HStack>
       </Button>
