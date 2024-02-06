@@ -9,6 +9,7 @@ import {
   DrawerCloseButton,
   Box,
   useDisclosure,
+  Text,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { MdLocalMovies } from "react-icons/md";
@@ -18,6 +19,7 @@ import { ItemMedia } from "./ItemMedia";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 import { UseMovieStore } from "../../stores/UseMovieStore";
+import { FaFire } from "react-icons/fa";
 
 export function SideBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -102,7 +104,10 @@ export function SideBar() {
             letterSpacing="2px"
             backgroundColor={COLORS.Primary_Navy_Blue}
           >
-            TV or Movie
+            <HStack justifyContent="center">
+              <Text>TV or Movie</Text>
+              <FaFire color="red" />
+            </HStack>
           </DrawerHeader>
 
           <DrawerBody
