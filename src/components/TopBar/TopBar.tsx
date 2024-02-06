@@ -3,9 +3,26 @@ import { COLORS } from "../../constants";
 import { RiMovie2Fill } from "react-icons/ri";
 import { InputSearch } from "./InputSearch";
 import { SideBar } from "../SideBar";
+import { UseMovieStore } from "../../stores/UseMovieStore";
+import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 
 export const TopBar = () => {
   const borderWidth: string = "4px";
+
+  const { currentMedia, setFilterMedia } = UseMovieStore();
+
+  const filterMediaName = (name: string) => {
+    const allFilterName = currentMedia.filter((media) => {
+      if ("original_title" in media) {
+        return media.original_title.includes(name);
+      } else if ("original_name" in media) {
+        return media.original_name.includes(name);
+      }
+    });
+    console.log("🚀: ~ allFilterName:", allFilterName);
+
+    setFilterMedia(allFilterName as MovieDetail[] | TVSeriesDetail[]);
+  };
 
   return (
     <HStack
@@ -33,7 +50,10 @@ export const TopBar = () => {
       </HStack>
       <InputSearch
         placeholder="Search Movie..."
-        onChange={() => {}}
+        onChange={(e) => {
+          // console.log(e.target.value);
+          filterMediaName(e.target.value);
+        }}
         borderWidth={borderWidth}
       />
     </HStack>

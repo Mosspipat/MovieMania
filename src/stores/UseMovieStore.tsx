@@ -10,6 +10,8 @@ type useMovieStoreType = {
 
   currentMedia: MovieDetail[] | TVSeriesDetail[];
   setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => void;
+  filterMedia: (MovieDetail | TVSeriesDetail)[];
+  setFilterMedia: (newFilterMedia: MovieDetail[] | TVSeriesDetail[]) => void;
 
   setTrendMovie: (newTrendMovie: MovieDetail[]) => void;
   addTrendMovie: (newTrendMovie: MovieDetail) => void;
@@ -32,6 +34,11 @@ export const UseMovieStore = create<useMovieStoreType>((set) => ({
   popularTVSeries: [],
 
   currentMedia: [],
+  filterMedia: [],
+
+  setFilterMedia: (newFilterMedia: (MovieDetail | TVSeriesDetail)[]) => {
+    set({ filterMedia: newFilterMedia });
+  },
 
   setCurrentMedia: (newCurrentMedia: MovieDetail[] | TVSeriesDetail[]) => {
     set({ currentMedia: newCurrentMedia });

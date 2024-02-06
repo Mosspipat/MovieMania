@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Flex, HStack, Image, Text, VStack, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Tag } from "..";
 import { GetGenreIDS } from "../../services";
@@ -22,6 +22,8 @@ export const Card = (props: CardProps) => {
     props;
 
   const [allGenreList, setAllGenreList] = useState([]);
+
+  const defaultScale = 1;
 
   const covertGenreIDToGenre = (genre_ids: number) => {
     const GenreObj = allGenreList?.genres?.find(
@@ -52,6 +54,19 @@ export const Card = (props: CardProps) => {
     })();
   }, []);
 
+  const scaleAnimation = keyframes`
+  
+  0%{
+    transform: scale(0); 
+  }
+  50%{
+    
+  }
+  100%{
+    transform: scale(${defaultScale}); 
+  }
+`;
+
   return (
     <StyledCard>
       <VStack
@@ -61,10 +76,12 @@ export const Card = (props: CardProps) => {
         maxW="360px"
         padding="0em 0em 1em"
         boxShadow="dark-lg"
-        transform="scale(1.0)"
-        transition={"transform 0.6s ease, opacity 0.3s ease"}
+        transform={`scale(${defaultScale})`}
+        transition={"all 0.6s ease"}
+        animation={`${scaleAnimation} 2s ease-out`}
         _hover={{
           transform: "scale(1.1)",
+          backgroundColor: "red",
         }}
         onClick={() => {
           onClick(id);
