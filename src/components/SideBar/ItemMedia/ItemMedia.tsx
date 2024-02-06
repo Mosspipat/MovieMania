@@ -13,6 +13,10 @@ export function ItemMedia(props: ItemMediaProps) {
   const { label, MediaList, onClick } = props;
   const [posters, setPoster] = useState<string[]>([]);
 
+  useEffect(() => {
+    mediaPoster(MediaList);
+  }, []);
+
   const mediaPoster = (MediaList: MovieDetail[] | TVSeriesDetail[]) => {
     if (posters.length <= 0) {
       if ("original_title" in MediaList[0]) {
@@ -34,14 +38,13 @@ export function ItemMedia(props: ItemMediaProps) {
     return posters;
   };
 
-  useEffect(() => {
-    mediaPoster(MediaList);
-  }, []);
-
   return (
     <VStack
       position="relative"
       onClick={() => (onClick ? onClick(MediaList) : () => {})}
+      cursor="pointer"
+      transition={`0.3s ease-out`}
+      _hover={{ transform: "scale(1.1)" }}
     >
       <Text
         textTransform="uppercase"
