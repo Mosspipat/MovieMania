@@ -14,9 +14,9 @@ export const TopBar = () => {
   const filterMediaName = (name: string) => {
     const allFilterMedia = currentMedia.filter((media) => {
       if ("original_title" in media) {
-        return media.original_title.includes(name);
+        return media.original_title.toLowerCase().includes(name);
       } else if ("original_name" in media) {
-        return media.original_name.includes(name);
+        return media.original_name.toLowerCase().includes(name);
       }
     });
 

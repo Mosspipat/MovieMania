@@ -56,9 +56,9 @@ export function SideBar() {
 
     const filterMediaList = typeMedia.filter((media) => {
       if ("original_title" in media) {
-        return media.original_title.includes(nameFilter);
+        return media.original_title.toLowerCase().includes(nameFilter);
       } else if ("original_name" in media) {
-        return media.original_name.includes(nameFilter);
+        return media.original_name.toLowerCase().includes(nameFilter);
       }
     });
 
