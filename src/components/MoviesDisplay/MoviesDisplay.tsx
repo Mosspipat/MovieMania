@@ -58,7 +58,7 @@ export const MoviesDisplay = () => {
 
   return (
     <Flex
-      minW="100vw"
+      maxW="100vw"
       minH="100vh"
       gap={16}
       flexWrap={"wrap"}
@@ -77,7 +77,6 @@ export const MoviesDisplay = () => {
             onClick={handleTempMovieDetail}
           />
         ))}
-
       <Modal
         visible={isOpenModal}
         detail={tempMovieDetail}
