@@ -73,10 +73,22 @@ export function AuthPage() {
           _hover={{ color: "white" }}
           onClick={() => {
             console.log("login");
-            navigate("/explore");
           }}
         >
           Log in
+        </Button>
+        <Button
+          variant="ghost"
+          width="100%"
+          color="black"
+          _hover={{ color: "black" }}
+          
+          onClick={() => {
+            console.log("login");
+            navigate("/explore");
+          }}
+        >
+          Continue as guest
         </Button>
       </VStack>
     </Flex>
