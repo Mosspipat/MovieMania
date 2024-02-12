@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UseGuestSessionType } from "../hooks/type";
 const apiKey = import.meta.env.VITE_API_KEY;
 
 export const GetCreateGuestSession = async () => {
@@ -12,7 +13,7 @@ export const GetCreateGuestSession = async () => {
         },
       }
     );
-    return res.data;
+    return res.data as UseGuestSessionType;
   } catch (error) {
     console.error("Error fetching data", error);
   }

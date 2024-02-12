@@ -12,9 +12,12 @@ import {
 import { COLORS } from "../../constants";
 import { MdLocalMovies } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { UseGuestSession } from "../../hooks";
 
 export function AuthPage() {
   const navigate = useNavigate();
+
+  const { fetchSession } = UseGuestSession();
 
   return (
     <Flex
@@ -82,9 +85,9 @@ export function AuthPage() {
           width="100%"
           color="black"
           _hover={{ color: "black" }}
-          
           onClick={() => {
             console.log("login");
+            fetchSession();
             navigate("/explore");
           }}
         >
