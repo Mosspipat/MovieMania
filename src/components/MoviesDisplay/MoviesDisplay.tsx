@@ -58,7 +58,7 @@ export const MoviesDisplay = () => {
 
   return (
     <Flex
-      maxW="100vw"
+      minW="100vw"
       minH="100vh"
       gap={16}
       flexWrap={"wrap"}

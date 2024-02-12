@@ -24,7 +24,7 @@ export const AuthPanel = () => {
           color={"transparent"}
           textShadow={`0px 0px 0px white`}
           backgroundColor={COLORS.Accent_Purple}
-          transition={`0.5s ease-in`}
+          transition={`0.3s ease-in`}
           borderRadius={24}
           border={"2px solid white"}
           _hover={hoverCss}
@@ -35,7 +35,7 @@ export const AuthPanel = () => {
           color={"transparent"}
           textShadow={`0px 0px 0px white`}
           backgroundColor={COLORS.Accent_Purple}
-          transition={`0.5s ease-in`}
+          transition={`0.3s ease-in`}
           borderRadius={24}
           border={"2px solid white"}
           _hover={hoverCss}
