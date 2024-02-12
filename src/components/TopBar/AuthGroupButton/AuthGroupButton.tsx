@@ -1,7 +1,8 @@
 import { Button, ButtonGroup, Flex, SystemStyleObject } from "@chakra-ui/react";
 import { COLORS } from "../../../constants";
+import { GetCreateGuestSession } from "../../../services";
 
-export const AuthPanel = () => {
+export const AuthGroupButton = () => {
   const hoverCss: SystemStyleObject = {
     backgroundColor: "white",
     color: `transparent`,
@@ -28,6 +29,10 @@ export const AuthPanel = () => {
           borderRadius={24}
           border={"2px solid white"}
           _hover={hoverCss}
+          onClick={async () => {
+            const data = await GetCreateGuestSession();
+            console.log("🚀: ~ data:", data);
+          }}
         >
           Login
         </Button>
