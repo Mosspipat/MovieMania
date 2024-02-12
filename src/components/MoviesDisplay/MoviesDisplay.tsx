@@ -77,7 +77,6 @@ export const MoviesDisplay = () => {
             onClick={handleTempMovieDetail}
           />
         ))}
-
       <Modal
         visible={isOpenModal}
         detail={tempMovieDetail}
