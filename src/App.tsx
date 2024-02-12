@@ -1,13 +1,11 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { Footer, MoviesDisplay, TopBar } from "./components";
 import theme from "./styles/theme";
+import { ExploreMedia } from "./pages/ExploreMediaPage";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <TopBar />
-      <MoviesDisplay />
-      <Footer />
+      <ExploreMedia />
     </ChakraProvider>
   );
 }
