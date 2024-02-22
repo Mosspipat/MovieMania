@@ -68,6 +68,7 @@ export const MoviesDisplay = () => {
       {filterMedia &&
         filterMedia.map((movie, movieID) => (
           <Card
+            key={movieID}
             title={mediaName(movie)}
             overview={movie.overview}
             imagePath={`${PATH_ORIGIN_IMAGE_WIDTH_500}/${movie.poster_path}`}
