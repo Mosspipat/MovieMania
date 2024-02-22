@@ -65,6 +65,7 @@ export function ItemMedia(props: ItemMediaProps) {
           posters.map((poster, index) => {
             return (
               <Image
+                key={index}
                 src={`${PATH_ORIGIN_IMAGE_WIDTH_500}/${poster}`}
                 position="absolute"
                 top="32px"

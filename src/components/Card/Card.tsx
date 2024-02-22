@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { Flex, HStack, Image, Text, VStack, keyframes } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Tag } from "..";
@@ -39,8 +38,8 @@ export const Card = (props: CardProps) => {
     return (
       genre_ids && (
         <Flex justifyContent="start" gap={2} flexWrap="wrap" width="100%">
-          {genre_ids.map((genreID) => (
-            <Tag label={covertGenreIDToGenre(genreID)} />
+          {genre_ids.map((genreID, index) => (
+            <Tag key={index} label={covertGenreIDToGenre(genreID)} />
           ))}
         </Flex>
       )
