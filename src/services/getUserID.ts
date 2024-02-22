@@ -1,7 +1,7 @@
 import axios from "axios";
 const apiKey = import.meta.env.VITE_API_KEY;
 
-export const getUserID = async () => {
+export const GetUserID = async () => {
   try {
     const res = await axios.get(
       "https://api.themoviedb.org/3/account/20948963",

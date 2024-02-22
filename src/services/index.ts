@@ -1,3 +1,5 @@
-export { getPopularMovieList } from "./popularMovie";
-export { getUserID } from "./getUserID";
+export { GetPopularMovieList } from "./GetPopularMovie";
+export { GetUserID } from "./GetUserID";
 export { GetGenreIDS } from "./GetGenreID";
+export { GetTrendingMovie } from "./GetTrendingMovie";
+export { GetTrendingTVList } from "./GetTrendingTV";

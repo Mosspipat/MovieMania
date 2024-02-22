@@ -1,24 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Box, Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
-import React, { CSSProperties, useEffect, useState } from "react";
+import { Flex, HStack, Image, Text, VStack, keyframes } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { Tag } from "..";
 import { GetGenreIDS } from "../../services";
 import { COLORS } from "../../constants";
 import { StyledCard } from "./style";
 import { StarIcon } from "@chakra-ui/icons";
 
-type CardProps = {
+export type CardProps = {
   title?: string;
   overview?: string;
   imagePath?: string;
   genreIDS?: number[];
   voteAverage?: number;
+  id: number;
+  onClick: (id: number) => void;
 };
 
-const Card = (props: CardProps) => {
-  const { title, overview, imagePath, genreIDS, voteAverage } = props;
+export const Card = (props: CardProps) => {
+  const { title, overview, imagePath, genreIDS, voteAverage, id, onClick } =
+    props;
 
   const [allGenreList, setAllGenreList] = useState([]);
+
+  const defaultScale = 1;
 
   const covertGenreIDToGenre = (genre_ids: number) => {
     const GenreObj = allGenreList?.genres?.find(
@@ -49,6 +54,21 @@ const Card = (props: CardProps) => {
     })();
   }, []);
 
+  const scaleAnimation = keyframes`
+  0%{
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100%{
+    transform: scale(${defaultScale}); 
+    opacity: 1;
+  }
+`;
+
   return (
     <StyledCard>
       <VStack
@@ -57,9 +77,20 @@ const Card = (props: CardProps) => {
         borderRadius="0px 0px 24px 24px"
         maxW="360px"
         padding="0em 0em 1em"
+        boxShadow="dark-lg"
+        transform={`scale(${defaultScale})`}
+        transition={"all 0.6s ease"}
+        animation={`${scaleAnimation} 0.6s ease-out`}
+        _hover={{
+          transform: "scale(1.1)",
+          backgroundColor: "red",
+        }}
+        onClick={() => {
+          onClick(id);
+        }}
       >
         <Image src={imagePath} />
-        <VStack alignItems="center" width="full" padding="0em 1em">
+        <VStack alignItems="center" width="full" padding="1em 1em">
           <HStack width="full" justifyContent="space-between">
             <Text color="white" fontWeight="bold">
               {title}
@@ -83,5 +114,3 @@ const Card = (props: CardProps) => {
     </StyledCard>
   );
 };
-
-export default Card;

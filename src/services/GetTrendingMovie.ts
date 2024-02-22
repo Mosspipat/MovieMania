@@ -12,7 +12,7 @@ export const GetTrendingMovie = async () => {
           accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
         },
-      },
+      }
     );
     return res.data;
   } catch (error) {

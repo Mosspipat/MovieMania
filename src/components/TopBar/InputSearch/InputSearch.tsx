@@ -21,7 +21,7 @@ type InputSearchProps = {
 };
 
 export const InputSearch = (
-  props: InputSearchProps & InputSearchSpecificProps,
+  props: InputSearchProps & InputSearchSpecificProps
 ) => {
   const {
     onChange,

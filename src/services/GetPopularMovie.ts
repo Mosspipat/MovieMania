@@ -6,7 +6,7 @@ type GetAllMovieList = {
   page?: number;
 };
 
-export const getPopularMovieList = async (props: GetAllMovieList) => {
+export const GetPopularMovieList = async (props: GetAllMovieList) => {
   const { language = "en-US", page = 1 } = props;
 
   try {
@@ -22,6 +22,6 @@ export const getPopularMovieList = async (props: GetAllMovieList) => {
     );
     return res.data;
   } catch (error) {
-    console.error("Error fetching movie list", error);
+    console.error("Error fetching popular movie list", error);
   }
 };

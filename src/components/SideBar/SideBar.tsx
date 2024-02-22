@@ -28,7 +28,8 @@ export function SideBar() {
   const [movieList, setMovieList] = useState<MovieDetail[]>([]);
   const [TVSeriesList, setTVSeriesList] = useState<TVSeriesDetail[]>([]);
 
-  const { setCurrentMedia, setFilterMedia, nameFilter } = UseMovieStore();
+  const { setCurrentMedia, setFilterMedia, currentMedia, nameFilter } =
+    UseMovieStore();
 
   useEffect(() => {
     (async () => {
