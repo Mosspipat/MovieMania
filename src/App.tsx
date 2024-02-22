@@ -1,13 +1,18 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import { Footer, MoviesDisplay, TopBar } from "./components";
 import theme from "./styles/theme";
+import { ExploreMedia } from "./pages/ExploreMediaPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { AuthPage } from "./pages/AuthPage";
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <TopBar />
-      <MoviesDisplay />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AuthPage />} />
+          <Route path="/explore" element={<ExploreMedia />} />
+        </Routes>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

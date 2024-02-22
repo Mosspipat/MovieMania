@@ -5,7 +5,7 @@ import { UseGuestSessionType } from "./type";
 
 export const UseGuestSession = () => {
   const [guestSessionId, setGuestSessionId] = useState<UseGuestSessionType>(
-    {} as UseGuestSessionType,
+    {} as UseGuestSessionType
   );
 
   const fetchSession = async () => {
