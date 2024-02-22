@@ -10,7 +10,7 @@ export const GetUserID = async () => {
           Authorization: `Bearer ${apiKey}`,
           Accept: "application/json",
         },
-      }
+      },
     );
     return res.data;
   } catch (error) {

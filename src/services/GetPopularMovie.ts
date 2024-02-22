@@ -18,7 +18,7 @@ export const GetPopularMovieList = async (props: GetAllMovieList) => {
           accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
         },
-      }
+      },
     );
     return res.data;
   } catch (error) {

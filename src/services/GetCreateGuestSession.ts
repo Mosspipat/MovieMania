@@ -11,7 +11,7 @@ export const GetCreateGuestSession = async () => {
           Authorization: `Bearer ${apiKey}`,
           Accept: "application/json",
         },
-      }
+      },
     );
     return res.data as UseGuestSessionType;
   } catch (error) {
