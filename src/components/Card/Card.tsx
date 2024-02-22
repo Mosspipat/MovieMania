@@ -22,7 +22,7 @@ const Card = (props: CardProps) => {
 
   const covertGenreIDToGenre = (genre_ids: number) => {
     const GenreObj = allGenreList?.genres?.find(
-      (genre) => genre.id === genre_ids
+      (genre) => genre.id === genre_ids,
     );
 
     const labelGenre = GenreObj?.name;

@@ -10,7 +10,7 @@ export const GetGenreIDS = async () => {
           Authorization: `Bearer ${apiKey}`,
           Accept: "application/json",
         },
-      }
+      },
     );
     return res.data;
   } catch (error) {
