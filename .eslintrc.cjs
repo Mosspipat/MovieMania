@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true, // Add node environment for Node.js
   },
   extends: [
     "eslint:recommended",
@@ -13,7 +14,7 @@ module.exports = {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ["*.ts", "*.tsx"],
       parserOptions: {
         sourceType: "script",
       },
@@ -26,7 +27,6 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "react"],
   rules: {
-    "@typescript-eslint/no-console": "error",
     "react/react-in-jsx-scope": "off",
   },
 };

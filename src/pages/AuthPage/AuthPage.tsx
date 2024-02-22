@@ -19,6 +19,8 @@ export function AuthPage() {
 
   const { fetchSession } = UseGuestSession();
 
+  const a = 10;
+
   return (
     <Flex
       justifyContent="center"
