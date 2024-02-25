@@ -52,9 +52,6 @@ export function AuthPage() {
         </VStack>
 
         <InputGroup>
-          {/* <InputLeftElement pointerEvents="none">
-            <PhoneIcon color="gray.300" />
-          </InputLeftElement> */}
           <Input type="tel" placeholder="Username" />
         </InputGroup>
         <InputGroup>
