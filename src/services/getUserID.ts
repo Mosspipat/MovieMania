@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = import.meta.env.VITE_API_KEY;
+const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 export const GetUserID = async () => {
   try {
@@ -7,7 +7,7 @@ export const GetUserID = async () => {
       "https://api.themoviedb.org/3/account/20948963",
       {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${accessToken}`,
           Accept: "application/json",
         },
       },

@@ -1,10 +1,10 @@
-import { Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
 import { Card, Modal } from "..";
 import { MovieDetail, TVSeriesDetail } from "./type";
 import { UseMovieStore } from "../../stores/UseMovieStore";
+import { Flex } from "@chakra-ui/react";
 
 export const MoviesDisplay = () => {
   const [tempMovieDetail, setTempMovieDetail] = useState<
@@ -50,7 +50,7 @@ export const MoviesDisplay = () => {
 
   const mediaName = (movie: MovieDetail | TVSeriesDetail) => {
     if ("original_title" in movie) {
-      return movie.original_title;
+      return movie.title;
     } else if ("original_name" in movie) {
       return movie.original_name;
     }
