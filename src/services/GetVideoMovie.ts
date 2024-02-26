@@ -14,7 +14,6 @@ export const GetVideoMovie = async (movie_id: number) => {
         },
       },
     );
-    console.log("🚀: ~ data:", res.data);
     return res.data;
   } catch (error) {
     console.error(error);

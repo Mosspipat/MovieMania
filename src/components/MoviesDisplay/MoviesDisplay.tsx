@@ -50,8 +50,10 @@ export const MoviesDisplay = () => {
 
   const mediaName = (movie: MovieDetail | TVSeriesDetail) => {
     if ("original_title" in movie) {
-      return movie.original_title;
+      // console.log("🚀: ~ original_title:", movie);
+      return movie.title;
     } else if ("original_name" in movie) {
+      // console.log("🚀: ~ original_name:", movie);
       return movie.original_name;
     }
   };

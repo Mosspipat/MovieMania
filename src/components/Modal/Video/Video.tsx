@@ -4,23 +4,29 @@ import {
   GetVideoMovie,
 } from "../../../services";
 import { AspectRatio, Flex, Spinner } from "@chakra-ui/react";
+import { MovieDetail, TVSeriesDetail } from "../../MoviesDisplay/type";
 
-type VideoProps = { name: string };
+type VideoProps = {
+  detail: MovieDetail | TVSeriesDetail | undefined;
+};
 
 export const Video = (props: VideoProps) => {
-  const { name } = props;
+  const { detail } = props;
+  console.log("🚀: ~ detail:", detail);
 
   const [allKeyVideo, setAllKeyVideo] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const data = await GetSearchMovieDetailInformation(name);
+      const data = await GetSearchMovieDetailInformation(
+        detail?.title,
+        detail?.release_date,
+      );
       const idMedia = data.results[0].id;
       const newData = await GetVideoMovie(idMedia);
       // console.log("🚀: ~ newData:", newData.results);
 
       newData.results.map((teaserType) => {
-        console.log("🚀: ~ teaserType:", teaserType.key);
         setAllKeyVideo((allKeyVideo) => [...allKeyVideo, teaserType.key]);
       });
     })();

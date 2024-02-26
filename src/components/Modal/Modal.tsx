@@ -22,6 +22,7 @@ type ModalProps = {
 
 export function Modal(props: ModalProps) {
   const { detail, visible, onClose: onCloseModal } = props;
+  console.log("🚀: ~ detail:", detail);
 
   const finalRef = useRef(null);
   const { sampleSentences } = Lorem;
@@ -53,7 +54,7 @@ export function Modal(props: ModalProps) {
         <ModalHeader>{detail?.title}</ModalHeader>
         <ModalCloseButton onClick={handleCloseModal} />
         <ModalBody>
-          <Video name={detail?.title} />
+          <Video detail={detail} />
           <Text> {detail?.overview || sampleSentences(2)}</Text>
         </ModalBody>
       </ModalContent>
