@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = import.meta.env.VITE_ACCESS_TOKEN;
+const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 const language = "en-US";
 export const GetTrendingMovie = async () => {
@@ -10,7 +10,7 @@ export const GetTrendingMovie = async () => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     );

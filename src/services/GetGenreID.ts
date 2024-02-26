@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = import.meta.env.VITE_ACCESS_TOKEN;
+const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 export const GetGenreIDS = async () => {
   try {
@@ -7,7 +7,7 @@ export const GetGenreIDS = async () => {
       "https://api.themoviedb.org/3/genre/movie/list?language=en",
       {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${accessToken}`,
           Accept: "application/json",
         },
       },

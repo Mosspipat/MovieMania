@@ -1,5 +1,5 @@
 import axios from "axios";
-const apiKey = import.meta.env.VITE_ACCESS_TOKEN;
+const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 type GetAllMovieList = {
   language?: string;
@@ -16,7 +16,7 @@ export const GetPopularMovieList = async (props: GetAllMovieList) => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     );
