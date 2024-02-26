@@ -12,6 +12,7 @@ import { Lorem } from "../../utils";
 import { useEffect, useRef } from "react";
 import { COLORS } from "../../constants";
 import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
+import { Video } from "./Video";
 
 type ModalProps = {
   detail?: MovieDetail | TVSeriesDetail;
@@ -21,6 +22,7 @@ type ModalProps = {
 
 export function Modal(props: ModalProps) {
   const { detail, visible, onClose: onCloseModal } = props;
+
   const finalRef = useRef(null);
   const { sampleSentences } = Lorem;
 
@@ -51,9 +53,7 @@ export function Modal(props: ModalProps) {
         <ModalHeader>{detail?.title}</ModalHeader>
         <ModalCloseButton onClick={handleCloseModal} />
         <ModalBody>
-          {/* <AspectRatio maxW="560px" ratio={1}>
-            <iframe title="naruto" src={detail?.urlVideo} allowFullScreen />
-          </AspectRatio> */}
+          <Video name={detail?.title} />
           <Text> {detail?.overview || sampleSentences(2)}</Text>
         </ModalBody>
       </ModalContent>

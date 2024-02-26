@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { AspectRatio, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
@@ -83,6 +83,13 @@ export const MoviesDisplay = () => {
         detail={tempMovieDetail}
         onClose={() => setIsOpenModal(false)}
       />
+      <AspectRatio maxW="fit-content" ratio={1}>
+        <iframe
+          title="naruto"
+          src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+          allowFullScreen
+        />
+      </AspectRatio>
     </Flex>
   );
 };
