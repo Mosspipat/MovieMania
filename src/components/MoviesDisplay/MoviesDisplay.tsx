@@ -1,10 +1,10 @@
-import { AspectRatio, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { GetTrendingMovie, GetTrendingTVList } from "../../services";
 import { PATH_ORIGIN_IMAGE_WIDTH_500 } from "../../constants";
 import { Card, Modal } from "..";
 import { MovieDetail, TVSeriesDetail } from "./type";
 import { UseMovieStore } from "../../stores/UseMovieStore";
+import { Flex } from "@chakra-ui/react";
 
 export const MoviesDisplay = () => {
   const [tempMovieDetail, setTempMovieDetail] = useState<
@@ -50,10 +50,8 @@ export const MoviesDisplay = () => {
 
   const mediaName = (movie: MovieDetail | TVSeriesDetail) => {
     if ("original_title" in movie) {
-      // console.log("🚀: ~ original_title:", movie);
       return movie.title;
     } else if ("original_name" in movie) {
-      // console.log("🚀: ~ original_name:", movie);
       return movie.original_name;
     }
   };
@@ -85,13 +83,6 @@ export const MoviesDisplay = () => {
         detail={tempMovieDetail}
         onClose={() => setIsOpenModal(false)}
       />
-      <AspectRatio maxW="fit-content" ratio={1}>
-        <iframe
-          title="naruto"
-          src="https://www.youtube.com/embed/QhBnZ6NPOY0"
-          allowFullScreen
-        />
-      </AspectRatio>
     </Flex>
   );
 };
