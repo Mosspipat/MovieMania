@@ -22,7 +22,6 @@ type ModalProps = {
 
 export function Modal(props: ModalProps) {
   const { detail, visible, onClose: onCloseModal } = props;
-  console.log("🚀: ~ detail:", detail);
 
   const finalRef = useRef(null);
   const { sampleSentences } = Lorem;
