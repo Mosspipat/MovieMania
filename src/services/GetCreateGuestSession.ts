@@ -1,6 +1,6 @@
 import axios from "axios";
 import { UseGuestSessionType } from "../hooks/type";
-const apiKey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_ACCESS_TOKEN;
 
 export const GetCreateGuestSession = async () => {
   try {
