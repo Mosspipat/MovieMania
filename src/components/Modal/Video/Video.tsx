@@ -65,7 +65,6 @@ export const Video = (props: VideoProps) => {
   useEffect(() => {
     (async () => {
       const data = await mediaSearchInformationByName(detail);
-
       const idMedia = data.results[0].id;
 
       const videosInfo = await mediaGetVideo(idMedia);
@@ -76,8 +75,8 @@ export const Video = (props: VideoProps) => {
   return (
     <>
       {allKeyVideo && allKeyVideo.length > 0 ? (
-        <AspectRatio width="full" ratio={1}>
-          <iframe title="naruto" src={linkYoutube()} allowFullScreen />
+        <AspectRatio width="full">
+          <iframe title="movie" src={linkYoutube()} allowFullScreen />
         </AspectRatio>
       ) : (
         <Flex justifyContent="center" alignItems="center">

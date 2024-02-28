@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { Lorem } from "../../utils";
 import { useEffect, useRef } from "react";
-import { COLORS } from "../../constants";
 import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
 import { Video } from "./Video";
 import { UseScoreVisuals } from "../../hook";
@@ -26,6 +25,7 @@ type ModalProps = {
 
 export function Modal(props: ModalProps) {
   const { detail, visible, onClose: onCloseModal } = props;
+  console.log("🚀: ~ detail:", detail);
 
   const { colorScore, emojiScore } = UseScoreVisuals();
 
@@ -55,13 +55,19 @@ export function Modal(props: ModalProps) {
       isOpen={isOpen}
       onClose={handleCloseModal}
       isCentered
+      size="xl"
     >
       <ModalOverlay />
       <ModalContent
-        backgroundColor={COLORS.Primary_Navy_Blue}
         color="white"
         borderRadius={16}
         p={1}
+        border="2px solid white"
+        backgroundColor="rgba(255, 255, 255, 0.7)" /* Adjust the last value for opacity */
+        backgroundSize="cover"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1 )), url('https://image.tmdb.org/t/p/original/${detail?.backdrop_path}')`,
+        }}
       >
         <ModalHeader
           textAlign="center"
