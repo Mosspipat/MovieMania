@@ -20,7 +20,14 @@ export const Card = (props: CardProps) => {
   const { title, overview, imagePath, genreIDS, voteAverage, id, onClick } =
     props;
 
-  const [allGenreList, setAllGenreList] = useState([]);
+  const [allGenreList, setAllGenreList] = useState<{
+    genres: {
+      id: number;
+      name: string;
+    }[];
+  }>();
+
+  console.log("allGenreList:", allGenreList);
 
   const defaultScale = 1;
 
@@ -39,7 +46,7 @@ export const Card = (props: CardProps) => {
       genre_ids && (
         <Flex justifyContent="start" gap={2} flexWrap="wrap" width="100%">
           {genre_ids.map((genreID, index) => (
-            <Tag key={index} label={covertGenreIDToGenre(genreID)} />
+            <Tag key={index} label={covertGenreIDToGenre(genreID) || ""} />
           ))}
         </Flex>
       )

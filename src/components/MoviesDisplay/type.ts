@@ -13,6 +13,7 @@ export type MovieDetail = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  results: unknown[];
 };
 
 export type TVSeriesDetail = {
@@ -31,4 +32,8 @@ export type TVSeriesDetail = {
   vote_average: number;
   vote_count: number;
   origin_country: string[];
+  title: string;
+  release_date: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  results: any[];
 };
