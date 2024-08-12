@@ -40,9 +40,9 @@ export const Video = (props: VideoProps) => {
   };
 
   const mediaGetVideo = async (idMedia: number) => {
-    if ("original_title" in detail) {
+    if (detail && "original_title" in detail) {
       return await GetVideoMovie(idMedia);
-    } else if ("original_name" in detail) {
+    } else if (detail && "original_name" in detail) {
       return await GetVideoTVSeries(idMedia);
     }
     return null;
@@ -50,14 +50,16 @@ export const Video = (props: VideoProps) => {
 
   const setKeyMedia = (allVideoInfo: VideoMovie | VideoTVSeries) => {
     allVideoInfo.results.map((teaserType) => {
-      setAllKeyVideo((allKeyVideo) => [...allKeyVideo, teaserType.key]);
+      setAllKeyVideo(
+        (allKeyVideo) => [...allKeyVideo, teaserType.key] as never,
+      );
     });
   };
 
   const linkYoutube = () => {
-    if ("original_title" in detail) {
+    if (detail && "original_title" in detail) {
       return `https://www.youtube.com/embed/${allKeyVideo[0]}`;
-    } else if ("original_name" in detail) {
+    } else if (detail && "original_name" in detail) {
       return `https://www.youtube.com/embed/${allKeyVideo[0]}`;
     }
   };

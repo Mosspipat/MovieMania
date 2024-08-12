@@ -1,1 +1,1 @@
-export { UseGuestSession } from "./useGuestSession";
+export { UseGuestSession } from "./UseGuestSession";

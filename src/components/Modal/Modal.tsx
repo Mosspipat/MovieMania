@@ -21,15 +21,13 @@ type ModalProps = {
   detail?: MovieDetail | TVSeriesDetail;
   visible: boolean;
   onClose: () => void;
+  title?: string;
 };
 
 export function Modal(props: ModalProps) {
   const { detail, visible, onClose: onCloseModal } = props;
-  console.log("🚀: ~ detail:", detail);
 
   const { colorScore, emojiScore } = UseScoreVisuals();
-
-  console.log("🚀: ~ detail:", detail);
 
   const finalRef = useRef(null);
   const { sampleSentences } = Lorem;
