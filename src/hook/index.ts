@@ -1,0 +1,1 @@
+export { UseScoreVisuals } from "./UseScoreVisuals";

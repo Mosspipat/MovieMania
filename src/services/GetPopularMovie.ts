@@ -1,12 +1,12 @@
 import axios from "axios";
-const apiKey = import.meta.env.VITE_API_KEY;
+const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
 type GetAllMovieList = {
   language?: string;
   page?: number;
 };
 
-export const getPopularMovieList = async (props: GetAllMovieList) => {
+export const GetPopularMovieList = async (props: GetAllMovieList) => {
   const { language = "en-US", page = 1 } = props;
 
   try {
@@ -16,12 +16,12 @@ export const getPopularMovieList = async (props: GetAllMovieList) => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${accessToken}`,
         },
-      }
+      },
     );
     return res.data;
   } catch (error) {
-    console.error("Error fetching movie list", error);
+    console.error("Error fetching popular movie list", error);
   }
 };
