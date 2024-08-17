@@ -2,6 +2,8 @@ import axios from "axios";
 import { UseGuestSessionType } from "../hooks/type";
 const accessToken = import.meta.env.VITE_ACCESS_TOKEN;
 
+console.log(import.meta.env);
+
 export const GetCreateGuestSession = async () => {
   try {
     const res = await axios.get(

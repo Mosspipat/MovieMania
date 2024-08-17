@@ -5,7 +5,7 @@ import { InputSearch } from "./InputSearch";
 import { SideBar } from "../SideBar";
 import { UseMovieStore } from "../../stores/UseMovieStore";
 import { MovieDetail, TVSeriesDetail } from "../MoviesDisplay/type";
-import { AuthGroupButton } from "./AuthGroupButton";
+// import { AuthGroupButton } from "./AuthGroupButton";
 
 export const TopBar = () => {
   const borderWidth: string = "4px";
@@ -49,7 +49,7 @@ export const TopBar = () => {
         </Text>
         <RiMovie2Fill size={40} color="white" />
       </HStack>
-      <AuthGroupButton />
+      {/* <AuthGroupButton /> */}
       <InputSearch
         placeholder="Search Movie..."
         onChange={(e) => {
