@@ -13,16 +13,18 @@ export const TopBar = () => {
   const { currentMedia, setFilterMedia, setNameFilter } = UseMovieStore();
 
   const filterMediaName = (name: string) => {
+    const lowerCaseName = name.toLowerCase();
+
     const allFilterMedia = currentMedia.filter((media) => {
       if ("original_title" in media) {
-        return media.original_title.toLowerCase().includes(name);
+        return media.original_title.toLowerCase().includes(lowerCaseName);
       } else if ("original_name" in media) {
-        return media.original_name.toLowerCase().includes(name);
+        return media.original_name.toLowerCase().includes(lowerCaseName);
       }
     });
 
     setFilterMedia(allFilterMedia as MovieDetail[] | TVSeriesDetail[]);
-    setNameFilter(name);
+    setNameFilter(lowerCaseName);
   };
 
   return (
